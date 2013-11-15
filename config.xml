@@ -13,8 +13,23 @@
        Fronteras XM
     </description>
 
-    <author href="http://coenraets.org" email="frankolopez@gmail.com">
+    <author href="http://www.tcs.com" email="frankolopez@gmail.com">
         Francisco Lopez
     </author>
+	
+	 <icon src="icon.png" />
+	 
+	 <!--
+		Define access to external domains.
+
+		<access />            - a blank access tag denies access to all external resources.
+		<access origin="*" /> - a wildcard access tag allows access to all external resource.
+
+		Otherwise, you can specify specific domains:
+	  -->
+	  <access origin="http://127.0.0.1*" /><!-- allow local pages -->
+	  <access origin="https://baas.kinvey.com*" />
+	  <access origin="https://da189i1jfloii.cloudfront.net*" />
+	  <access origin="https://storage.googleapis.com*" />
 
 </widget>
