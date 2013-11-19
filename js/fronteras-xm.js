@@ -13,7 +13,7 @@ $(function() {
                   console.log('Kinvey Ping Failed. Response: ' + error.description);
                 });
             }, function(error) {
-               
+               loginError.text('Problemas conectando con el backend. Por favor intente mas tarde');
             });
             
             
@@ -41,27 +41,23 @@ $(function() {
                 console.log(password);
                 var user = Kinvey.getActiveUser();
                 if (null !== user){
-                    Kinvey.User.logout({
-                    });
-                }       
-                Kinvey.User.login(username, password, {
-                    success: function() {
-                        loginForm.removeClass('loading');
-                        usernameField.val(''); //clear fields
-                        passwordField.val('');
-                        $.mobile.changePage('#menu'); //change to menu page
-                        var user = Kinvey.getActiveUser();
-                        console.log(user);
-                        var txtBienv = "Bienvenido: " + user.first_name + " " + user.last_name;
-                        $('#bienvenidaText').text(txtBienv);
-                        console.log(txtBienv);
-                    },
-                    error: function(error){
-                        console.log(error);
-                        loginForm.removeClass('loading');
-                        loginError.text('Por Favor ingrese un usuario y contraseña validos');
-                    }
-                });
+                    $.mobile.changePage('#menu'); //change to menu page
+                }
+				else {
+					Kinvey.User.login(username, password, {
+						success: function() {
+							loginForm.removeClass('loading');
+							usernameField.val(''); //clear fields
+							passwordField.val('');
+							$.mobile.changePage('#menu'); //change to menu page
+						},
+						error: function(error){
+							console.log(error);
+							loginForm.removeClass('loading');
+							loginError.text('Por Favor ingrese un usuario y contraseña validos');
+						}
+					});
+				}
                 return false;
             });
             
@@ -81,4 +77,54 @@ $(function() {
                     });
                 }
             });
-        });
+			
+			//Menu Page
+			$(document).on("pageinit", "#menu", function () {
+				var user = Kinvey.getActiveUser();
+				console.log(user);
+				var txtBienv = "Bienvenido: " + user.first_name + " " + user.last_name;
+				$('#bienvenidaText').text(txtBienv);
+				console.log(txtBienv);
+			});
+			
+			//Busqueda de requerimientos
+			$(document).on("pageinit", "#requerimientosBusqueda", function () {
+				var promise = Kinvey.DataStore.find('EstadosRequerimiento', null, {
+					success: function(items) {
+					   var list = $("#RevStatus");
+					   $.each(items, function(index, item) {
+						  list.append(new Option(item.Nombre, item.Id));
+					   });
+					}
+				});
+				var promise2 = Kinvey.DataStore.find('TiposRequerimiento', null, {
+    				success: function(items) {
+					   var list = $("#ReqType");
+					   $.each(items, function(index, item) {
+						  list.append(new Option(item.Nombre, item.Id));
+					   });
+					}
+				});
+			});
+			
+			
+			//Busqueda de Fronteras
+			$(document).on("pageinit", "#fronterasBusqueda", function () {
+				var promise = Kinvey.DataStore.find('TiposFrontera', null, {
+					success: function(items) {
+					   var list = $("#FronteraType");
+					   $.each(items, function(index, item) {
+						  list.append(new Option(item.Nombre, item.Id));
+					   });
+					}
+				});
+				var promise2 = Kinvey.DataStore.find('NivelesTension', null, {
+    				success: function(items) {
+					   var list = $("#nivelTension");
+					   $.each(items, function(index, item) {
+						  list.append(new Option(item.Descripcion, item.Id));
+					   });
+					}
+				});
+			});
+});		
