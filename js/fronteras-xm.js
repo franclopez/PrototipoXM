@@ -1,11 +1,11 @@
 $(function() {
             
             /********Init Connection with kinvey Back End********/
-           var promise = Kinvey.init({
+           var promiseInit = Kinvey.init({
                 appKey    : 'kid_PVvB5PRZEi',
                 appSecret : '5ba92a5b5d7e40949f84a445b747eaf4'
             });
-            promise.then(function(activeUser) {
+            promiseInit.then(function(activeUser) {
                 var promisePing = Kinvey.ping();
                 promisePing.then(function(response) {
                   console.log('Kinvey Ping Success. Kinvey Service is alive, version: ' + response.version + ', response: ' + response.kinvey);
@@ -43,7 +43,7 @@ $(function() {
                 if (null !== user){
                     $.mobile.changePage('#menu'); //change to menu page
                 }
-				else {
+    			else {
 					Kinvey.User.login(username, password, {
 						success: function() {
 							loginForm.removeClass('loading');
@@ -96,20 +96,19 @@ $(function() {
 						  list.append(new Option(item.Nombre, item.Id));
 					   });
 					}
-				});
-				var promise2 = Kinvey.DataStore.find('TiposRequerimiento', null, {
+				  });
+                  var promise2 = Kinvey.DataStore.find('TiposRequerimiento', null, {
     				success: function(items) {
 					   var list = $("#ReqType");
 					   $.each(items, function(index, item) {
 						  list.append(new Option(item.Nombre, item.Id));
 					   });
 					}
-				});
-			});
-			
-			
-			//Busqueda de Fronteras
-			$(document).on("pageinit", "#fronterasBusqueda", function () {
+				  });
+            });
+            
+            //Busqueda de Fronteras
+    		$(document).on("pageinit", "#fronterasBusqueda", function () {
 				var promise = Kinvey.DataStore.find('TiposFrontera', null, {
 					success: function(items) {
 					   var list = $("#FronteraType");
@@ -126,5 +125,34 @@ $(function() {
 					   });
 					}
 				});
+                var queryDpto = new Kinvey.Query();
+                queryDpto.ascending('NombreDepartamento');
+                var promiseDepto = Kinvey.DataStore.find('Departamentos', queryDpto, {
+    				success: function(items) {
+					   var list = $("#departamento");
+					   $.each(items, function(index, item) {
+						  list.append(new Option(item.NombreDepartamento, item.IdDepartamento));
+					   });
+					}
+				});
 			});
+            
+            $('#departamento').change(function() {
+			  var query = new Kinvey.Query();
+              query.ascending('NombreCiudad');
+			  query.equalTo('IdDepartamento', this.value);
+              $("#ciudad").empty();
+              $("#ciudad").append(new Option("Seleccione...", ''));
+              $("#ciudad").selectmenu('refresh');
+              $("#ciudad").prop('selectedIndex', 0);
+              var promiseCiudad = Kinvey.DataStore.find('Ciudades', query, {
+    				success: function(items) {
+					   var list = $("#ciudad");
+					   $.each(items, function(index, item) {
+						  list.append(new Option(item.NombreCiudad, item.IdCiudad));
+					   });
+					}
+				});
+			});
+            
 });		
