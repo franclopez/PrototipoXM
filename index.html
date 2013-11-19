@@ -121,7 +121,7 @@
   id="requerimientosBusqueda">
       <div data-theme="a" data-role="header" data-position="fixed">
           <a data-role="button" data-direction="reverse" data-transition="slide"
-          data-theme="b" href="#menu" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+          data-theme="a" href="#menu" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
               Atràs
           </a>
           <h3>
@@ -136,15 +136,6 @@
               <select id="RevStatus" name="RevStatus" data-theme="a">
                   <option value="">
                       Seleccione...
-                  </option>
-                  <option value="1">
-                      Revisión
-                  </option>
-                  <option value="2">
-                      Aprobado
-                  </option>
-                  <option value="2">
-                      Guardado
                   </option>
               </select>
           </div>
@@ -169,15 +160,6 @@
                   <option value="">
                       Seleccione...
                   </option>
-                  <option value="1">
-                      Reporte falla/hurto
-                  </option>
-                  <option value="2">
-                      Registro frontera nueva
-                  </option>
-                  <option value="3">
-                      Cancelación frontera
-                  </option>
               </select>
           </div>
       </div>
@@ -185,7 +167,7 @@
           <div data-role="navbar" data-iconpos="top">
               <ul>
                   <li>
-                      <a href="#detalleRequerimiento" data-transition="slide" data-theme="b"
+                      <a href="#detalleRequerimiento" data-transition="slide" data-theme="a"
                       data-icon="search">
                           Buscar
                       </a>
@@ -416,7 +398,7 @@
   <div data-role="page" data-control-title="Fronteras" data-theme="a" id="fronterasBusqueda">
       <div data-theme="a" data-role="header" data-position="fixed">
           <a data-role="button" data-direction="reverse" data-transition="slide"
-          data-theme="b" href="#menu" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+          data-theme="a" href="#menu" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
               Atràs
           </a>
           <h3>
@@ -438,36 +420,12 @@
               value="" type="text">
           </div>
           <div data-role="fieldcontain" data-controltype="selectmenu">
-              <label for="selectmenu4">
+              <label for="FronteraType">
                   Tipo de Frontera
               </label>
-              <select id="selectmenu4" name="ReqType" data-theme="b">
+              <select id="FronteraType" name="FronteraType" data-theme="a">
                   <option value="">
                       Seleccione...
-                  </option>
-                  <option value="1">
-                      Tipo entre Agentes
-                  </option>
-                  <option value="2">
-                      Tipo Regulado
-                  </option>
-                  <option value="3">
-                      Tipo No Regulado
-                  </option>
-                  <option value="4">
-                      Alumbrado Publ. Sin equipo de medida
-                  </option>
-                  <option value="5">
-                      Alumbrado Publ. Con equipo de medida
-                  </option>
-                  <option value="6">
-                      Tipo Tie
-                  </option>
-                  <option value="7">
-                      Tipo Internacional
-                  </option>
-                  <option value="8">
-                      Tipo Distribución
                   </option>
               </select>
           </div>
@@ -479,27 +437,12 @@
               type="text">
           </div>
           <div data-role="fieldcontain" data-controltype="selectmenu">
-              <label for="selectmenu5">
+              <label for="nivelTension">
                   Nivel de Tensión
               </label>
-              <select id="selectmenu5" name="" data-theme="b">
+              <select id="nivelTension" name="nivelTension" data-theme="a">
                   <option value="">
                       Seleccione...
-                  </option>
-                  <option value="1">
-                      1
-                  </option>
-                  <option value="2">
-                      2
-                  </option>
-                  <option value="3">
-                      3
-                  </option>
-                  <option value="4">
-                      4
-                  </option>
-                  <option value="5">
-                      5
                   </option>
               </select>
           </div>
@@ -513,7 +456,7 @@
               <label for="selectmenu6">
                   Departamento
               </label>
-              <select id="selectmenu6" name="departamento" data-theme="b">
+              <select id="selectmenu6" name="departamento" data-theme="a">
                   <option value="">
                       Seleccione...
                   </option>
@@ -526,7 +469,7 @@
               <label for="selectmenu7">
                   Ciudad
               </label>
-              <select id="selectmenu7" name="ciudad" data-theme="b">
+              <select id="selectmenu7" name="ciudad" data-theme="a">
                   <option value="">
                       Seleccione...
                   </option>
@@ -546,7 +489,7 @@
           <div data-role="navbar" data-iconpos="top">
               <ul>
                   <li>
-                      <a href="#detalleFronteras" data-transition="slide" data-theme="b" data-icon="search">
+                      <a href="#detalleFronteras" data-transition="slide" data-theme="a" data-icon="search">
                           Buscar
                       </a>
                   </li>
