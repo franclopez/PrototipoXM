@@ -89,6 +89,7 @@ $(function() {
 			//Busqueda de requerimientos
 			$(document).on("pageinit", "#requerimientosBusqueda", function () {
 				console.log("pageinit del requerimientosBusqueda");
+                $.mobile.loading('show');
 				var promise = Kinvey.DataStore.find('EstadosRequerimiento', null, {
 					success: function(items) {
 					   var list = $("#reqBusEstReq");
@@ -103,8 +104,10 @@ $(function() {
 					   $.each(items, function(index, item) {
 						  list.append(new Option(item.Nombre, item.Id));
 					   });
+                       $.mobile.loading('hide');
 					}
 				  });
+                  
             });
 			
 			$(document).on("pageshow", "#requerimientosBusqueda", function () {
