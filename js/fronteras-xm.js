@@ -63,7 +63,20 @@ $(function() {
             //Logout
 			
 			$("#logout").click(function () {
-                console.log("Logging out");
+                showConfirmLogout();
+            });
+			
+			var showConfirmLogout = function() {
+				navigator.notification.confirm(
+				'Desea Salir de la Aplicación?',     // mensaje (message)
+				doLogout,      // función 'callback' a llamar con el índice del botón pulsado (confirmCallback)
+				'Logout',            // titulo (title)
+					'Salir,Cancelar'       // botones (buttonLabels)
+				);
+			};
+			
+			var doLogout = function () {
+				console.log("Logging out");
                 var user = Kinvey.getActiveUser();
                 if (null !== user){
                     Kinvey.User.logout({
@@ -75,7 +88,7 @@ $(function() {
                         }
                     });
                 }
-            });
+			};
 			
 			//Menu Page
 			$(document).on("pageshow", "#menu", function () {
@@ -219,4 +232,14 @@ $(function() {
             $(document).bind("mobileinit", function () {
                 $.mobile.listview.prototype.options.filterPlaceholder = "Filtrar Datos...";
             });
+			
+			 var showAlert = function (message, title) {
+                if (navigator.notification) {
+                    navigator.notification.alert(message, null, title, 'OK');
+                } else {
+                    alert(title ? (title + ": " + message) : message);
+                }
+            };
+			
+			
 });		
