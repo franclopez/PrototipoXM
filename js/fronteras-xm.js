@@ -67,6 +67,7 @@ $(function() {
             });
 			
 			var showConfirmLogout = function() {
+				console.log("Por invocar confirm.");
 				navigator.notification.confirm(
 				'Desea Salir de la Aplicación?',     // mensaje (message)
 				doLogout,      // función 'callback' a llamar con el índice del botón pulsado (confirmCallback)
