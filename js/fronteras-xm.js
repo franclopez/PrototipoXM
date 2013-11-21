@@ -165,13 +165,47 @@ $(function() {
 				});
 			});
 			
-			//Realizar Busqueda de Requerimientos
+		  //Realizar Busqueda de Requerimientos
             $("#reqBusSearch").click(function () {
                  $.mobile.loading('show');
                  console.log("Buscando requerimientos....");
+    			 var reqBusEstReq = $("#reqBusEstReq").val();
+				 var query = new Kinvey.Query();
+				 query.equalTo('EstadoRequerimiento', reqBusEstReq);
+				 var reqBusCodSIc = $("#reqBusCodSIc").val();
+				 var query2 = new Kinvey.Query();
+				 query2.equalTo('CodigoSIC', reqBusCodSIc);
+				 query.or(query2);
+				 var reqBusReqID = $("#reqBusReqID").val();
+				 var query3 = new Kinvey.Query();
+				 query3.equalTo('IDRequerimiento', reqBusReqID);
+				 query.or(query3);
+				 var reqBusTipReq = $("#reqBusTipReq").val();
+				 var query4 = new Kinvey.Query();
+				 query4.equalTo('TipoRequerimiento', reqBusTipReq);
+				 query.or(query4);
+				 
+				 var promiseRequerimientos = Kinvey.DataStore.find('Requerimientos', query, {
+    				success: function(items) {
+					   console.log("Consulta satisfactoria de requerimientos");
+                       $('#desReqListaRequerimientos').empty();
+					   $.each(items, function(index, item) {
+						  console.log(item.CodigoSIC);
+						  $('#desReqListaRequerimientos').append('<li data-theme="c"><a href="#desistirRequerimiento" data-transition="slide">'
+						  + "IDReq:  " + item.IDRequerimiento + "<br/>Agente:  " + item.Agente+ "<br/>CodigoSIC:  "  + item.CodigoSIC
+						  +'</a></li>');
+					   });
+					   $('#desReqListaRequerimientos').listview('refresh');
+					   $.mobile.loading('hide');
+					},	
+					error: function(e) {
+						console.log("Problemas consultando requerimientos");
+					}
+				 });
                  $.mobile.changePage('#detalleRequerimiento');
                  $.mobile.loading('hide');
             });
+            
             
             
             //Realizar Busqueda de Fronteras
@@ -180,5 +214,9 @@ $(function() {
                  console.log("Buscando fronteras....");
                  $.mobile.changePage('#detalleFronteras');
                  $.mobile.loading('hide');
+            });
+            
+            $(document).bind("mobileinit", function () {
+                $.mobile.listview.prototype.options.filterPlaceholder = "Filtrar Datos...";
             });
 });		

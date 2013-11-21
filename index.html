@@ -299,43 +299,30 @@ id="requerimientosBusqueda">
       </div>
   </div>
   <div data-role="page" data-control-title="Requerimientos_list" data-theme="a"
-  id="detalleRequerimiento">
-      <div data-theme="a" data-role="header">
-          <a data-role="button" data-transition="slide" href="#menu" data-icon="home"
-          data-iconpos="left" class="ui-btn-right">
-              Home
-          </a>
-          <a data-role="button" data-direction="reverse" data-transition="slide"
-          data-theme="b" href="#requerimientosBusqueda" data-icon="arrow-l" data-iconpos="left"
-          class="ui-btn-left">
-              Atràs
-          </a>
-          <h3>
-              Requerimientos
-          </h3>
-      </div>
-      <div data-role="content">
-          <div data-role="fieldcontain" data-controltype="searchinput">
-              <input name="" id="searchinput1" placeholder="Ingrese consulta..." value=""
-              type="search">
-          </div>
-          <ul data-role="listview" data-divider-theme="a" data-inset="true">
-              <li data-role="list-divider" role="heading">
-                  Seleccione Para Desistir Requerimiento
-              </li>
-              <li data-theme="c">
-                  <a href="#desistirRequerimiento" data-transition="slide">
-                      201302034546 Modificación de Frontera
-                  </a>
-              </li>
-              <li data-theme="c">
-                  <a href="#desistirRequerimiento" data-transition="slide">
-                      2013100100 Registro Frontera Nueva
-                  </a>
-              </li>
-          </ul>
-      </div>
-  </div>
+id="detalleRequerimiento">
+    <div data-theme="a" data-role="header">
+        <a data-role="button" data-transition="slide" data-theme="a" href="#menu"
+        data-icon="home" data-iconpos="left" class="ui-btn-right">
+            Home
+        </a>
+        <a data-role="button" data-direction="reverse" data-transition="slide"
+        data-theme="a" href="#requerimientosBusqueda" data-icon="arrow-l" data-iconpos="left"
+        class="ui-btn-left">
+            Atràs
+        </a>
+        <h3>
+            Requerimientos
+        </h3>
+    </div>
+    <div data-role="content">
+        <ul id="desReqListaRequerimientos" data-role="listview" data-filter="true" data-divider-theme="a"
+        data-inset="true">
+            <li data-role="list-divider" role="heading">
+                Seleccione Para Desistir Requerimiento
+            </li>
+        </ul>
+    </div>
+</div>
   <div data-role="page" data-control-title="Fronteras_list" data-theme="a"
   id="detalleFronteras">
       <div data-role="panel" id="panel2" data-position="right" data-display="reveal"
