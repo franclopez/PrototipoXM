@@ -70,10 +70,10 @@ $(function() {
 				console.log("Por invocar confirm.");
 				if(navigator.notification){
 					navigator.notification.confirm(
-					'Desea Salir de la Aplicación?',     // mensaje (message)
-					doLogout,      // función 'callback' a llamar con el índice del botón pulsado (confirmCallback)
-					'Logout',            // titulo (title)
-						'Salir,Cancelar'       // botones (buttonLabels)
+					'Desea Salir de la Aplicación?',     
+					doLogout,      
+					'Logout',            
+					['Salir','Cancelar']
 					);
 				}
 				else {
@@ -90,19 +90,23 @@ $(function() {
 				}
 			};
 			
-			var doLogout = function () {
-				console.log("Logging out");
-                var user = Kinvey.getActiveUser();
-                if (null !== user){
-                    Kinvey.User.logout({
-                        success: function() {
-                            $.mobile.changePage('#logon'); 
-                        },
-                        error: function(e) {
-                            $.mobile.changePage('#logon'); 
-                        }
-                    });
-                }
+			var doLogout = function (buttonIndex) {
+				console.log("buttonIndex "+buttonIndex);
+				if(buttonIndex == 1) {
+					console.log("Logging out");
+					var user = Kinvey.getActiveUser();
+					 Kinvey.User.logout({
+						success: function() {
+							$.mobile.changePage('#logon'); 
+						},
+						error: function(e) {
+							$.mobile.changePage('#logon'); 
+						}
+					});
+				}
+				else {
+					return false;
+				}
 			};
 			
 			//Menu Page
