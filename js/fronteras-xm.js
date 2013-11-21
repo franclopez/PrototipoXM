@@ -273,8 +273,7 @@ $(function() {
 								};
 				navigator.camera.getPicture(
 					function(imageData) {
-						console.log("Se tomó la foto satisfactoriamente");
-						//$('#image').attr('src', "data:image/jpeg;base64," + imageData);
+						$('#image').attr('src', "data:image/jpeg;base64," + imageData);
 					},
 					function() {
 						alert('Error taking picture');
