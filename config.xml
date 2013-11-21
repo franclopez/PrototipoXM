@@ -13,11 +13,12 @@
        Fronteras XM
     </description>
 
-    <author href="http://coenraets.org" email="frankolopez@gmail.com">
+    <author href="http://www.tcs.com" email="frankolopez@gmail.com">
         Francisco Lopez
     </author>
 	
 	 <icon src="icon.png" />
+	 
 	 
 	 <!--
 		Define access to external domains.

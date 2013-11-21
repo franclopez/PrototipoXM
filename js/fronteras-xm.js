@@ -68,12 +68,26 @@ $(function() {
 			
 			var showConfirmLogout = function() {
 				console.log("Por invocar confirm.");
-				navigator.notification.confirm(
-				'Desea Salir de la Aplicación?',     // mensaje (message)
-				doLogout,      // función 'callback' a llamar con el índice del botón pulsado (confirmCallback)
-				'Logout',            // titulo (title)
-					'Salir,Cancelar'       // botones (buttonLabels)
-				);
+				if(navigator.notification){
+					navigator.notification.confirm(
+					'Desea Salir de la Aplicación?',     // mensaje (message)
+					doLogout,      // función 'callback' a llamar con el índice del botón pulsado (confirmCallback)
+					'Logout',            // titulo (title)
+						'Salir,Cancelar'       // botones (buttonLabels)
+					);
+				}
+				else {
+					console.log("Notificaciones no disponibles...Logging out");
+					var user = Kinvey.getActiveUser();
+					Kinvey.User.logout({
+						success: function() {
+							$.mobile.changePage('#logon'); 
+						},
+						error: function(e) {
+							$.mobile.changePage('#logon'); 
+						}
+					});
+				}
 			};
 			
 			var doLogout = function () {
