@@ -486,166 +486,169 @@ id="detalleRequerimiento">
     </div>
 </div>
 <div data-role="page" data-control-title="Reportar Falla Hurto" data-theme="a"
-  id="reporteFallaHurto">
-      <div data-theme="a" data-role="header" data-position="fixed">
-          <a data-role="button" data-transition="slide" href="#menu" data-icon="home"
-          data-iconpos="left" class="ui-btn-right">
-              Home
-          </a>
-          <a data-role="button" data-direction="reverse" data-rel="back" data-transition="slide"
-          data-theme="b" href="#menu" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
-              Atràs
-          </a>
-          <h3>
-              Falla Hurto
-          </h3>
-      </div>
-      <div data-role="content">
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="requerimientoTxt">
-                  Requerimiento
-              </label>
-              <input name="" id="requerimientoTxt" placeholder="" value="" type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="contactoTxt">
-                  Contacto
-              </label>
-              <input name="" id="contactoTxt" placeholder="" value="" type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="dateinput">
-              <label for="dateinput1">
-                  Fecha de Inicio
-              </label>
-              <input name="" id="dateinput1" placeholder="" value="" type="date">
-          </div>
-          <div data-role="fieldcontain" data-controltype="selectmenu">
-              <label for="selectmenu14">
-                  Tipo de Requerimiento
-              </label>
-              <select id="selectmenu14" name="">
-                  <option value="">
-                      Seleccione...
-                  </option>
-              </select>
-          </div>
-          <div data-role="fieldcontain" data-controltype="dateinput">
-              <label for="dateinput2">
-                  Fecha Máxima
-              </label>
-              <input name="" id="dateinput2" placeholder="" value="" type="date">
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="textinput11">
-                  Codigo SIC
-              </label>
-              <input name="SicCode" id="textinput11" placeholder="" value="" type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="textinput12">
-                  Representante de la Frontera
-              </label>
-              <input name="codPropioContador" id="textinput12" placeholder="" value=""
-              type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="selectmenu">
-              <label for="selectmenu8">
-                  Tipo de Frontera
-              </label>
-              <select id="selectmenu8" name="ReqType" data-theme="b">
-                  <option value="">
-                      Seleccione...
-                  </option>
-                  <option value="1">
-                      Tipo entre Agentes
-                  </option>
-                  <option value="2">
-                      Tipo Regulado
-                  </option>
-                  <option value="3">
-                      Tipo No Regulado
-                  </option>
-                  <option value="4">
-                      Alumbrado Publ. Sin equipo de medida
-                  </option>
-                  <option value="5">
-                      Alumbrado Publ. Con equipo de medida
-                  </option>
-                  <option value="6">
-                      Tipo Tie
-                  </option>
-                  <option value="7">
-                      Tipo Internacional
-                  </option>
-                  <option value="8">
-                      Tipo Distribución
-                  </option>
-              </select>
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="textinput13">
-                  Agente Reporta
-              </label>
-              <input name="agenteReporta" id="textinput13" placeholder="" value="" type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="textinput14">
-                  Nombre Frontera
-              </label>
-              <input name="" id="textinput14" placeholder="" value="" type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="equipoMedida">
-                  Equipo de Medida
-              </label>
-              <input name="equipoMedida" id="equipoMedida" placeholder="" value="" type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="selectmenu">
-              <label for="selectmenu15">
-                  Tipo de reporte
-              </label>
-              <select id="selectmenu15" name="tipoDeReporte" data-theme="b">
-                  <option value="">
-                      Seleccione...
-                  </option>
-                  <option value="1">
-                      Tipo entre Agentes
-                  </option>
-                  <option value="2">
-                      Tipo Regulado
-                  </option>
-                  <option value="3">
-                      Tipo No Regulado
-                  </option>
-                  <option value="4">
-                      Alumbrado Publ. Sin equipo de medida
-                  </option>
-                  <option value="5">
-                      Alumbrado Publ. Con equipo de medida
-                  </option>
-                  <option value="6">
-                      Tipo Tie
-                  </option>
-                  <option value="7">
-                      Tipo Internacional
-                  </option>
-                  <option value="8">
-                      Tipo Distribución
-                  </option>
-              </select>
-          </div>
-      </div>
-      <div data-theme="a" data-role="footer" data-position="fixed">
-          <div data-role="navbar" data-iconpos="top">
-              <ul>
-                  <li>
-                      <a href="#detalleFronteras" data-transition="slide" data-theme="b" data-icon="check">
-                          Guardar
-                      </a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </div>
+id="reporteFallaHurto">
+    <div data-theme="a" data-role="header" data-position="fixed">
+        <a data-role="button" data-transition="slide" data-theme="a" href="#menu"
+        data-icon="home" data-iconpos="left" class="ui-btn-right">
+            Home
+        </a>
+        <a data-role="button" data-direction="reverse" data-rel="back" data-transition="slide"
+        data-theme="a" href="#menu" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+            Atràs
+        </a>
+        <h3>
+            Falla Hurto
+        </h3>
+    </div>
+    <div data-role="content">
+        <a id="tomarFotoBtn" data-role="button" href="#">
+            Tomar Foto
+        </a>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="requerimientoTxt">
+                Requerimiento
+            </label>
+            <input name="" id="requerimientoTxt" placeholder="" value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="contactoTxt">
+                Contacto
+            </label>
+            <input name="" id="contactoTxt" placeholder="" value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="dateinput">
+            <label for="dateinput1">
+                Fecha de Inicio
+            </label>
+            <input name="" id="dateinput1" placeholder="" value="" type="date">
+        </div>
+        <div data-role="fieldcontain" data-controltype="selectmenu">
+            <label for="selectmenu14">
+                Tipo de Requerimiento
+            </label>
+            <select id="selectmenu14" name="" data-theme="a">
+                <option value="">
+                    Seleccione...
+                </option>
+            </select>
+        </div>
+        <div data-role="fieldcontain" data-controltype="dateinput">
+            <label for="dateinput2">
+                Fecha Máxima
+            </label>
+            <input name="" id="dateinput2" placeholder="" value="" type="date">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="textinput11">
+                Codigo SIC
+            </label>
+            <input name="SicCode" id="textinput11" placeholder="" value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="textinput12">
+                Representante de la Frontera
+            </label>
+            <input name="codPropioContador" id="textinput12" placeholder="" value=""
+            type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="selectmenu">
+            <label for="selectmenu8">
+                Tipo de Frontera
+            </label>
+            <select id="selectmenu8" name="ReqType" data-theme="a">
+                <option value="">
+                    Seleccione...
+                </option>
+                <option value="1">
+                    Tipo entre Agentes
+                </option>
+                <option value="2">
+                    Tipo Regulado
+                </option>
+                <option value="3">
+                    Tipo No Regulado
+                </option>
+                <option value="4">
+                    Alumbrado Publ. Sin equipo de medida
+                </option>
+                <option value="5">
+                    Alumbrado Publ. Con equipo de medida
+                </option>
+                <option value="6">
+                    Tipo Tie
+                </option>
+                <option value="7">
+                    Tipo Internacional
+                </option>
+                <option value="8">
+                    Tipo Distribución
+                </option>
+            </select>
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="textinput13">
+                Agente Reporta
+            </label>
+            <input name="agenteReporta" id="textinput13" placeholder="" value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="textinput14">
+                Nombre Frontera
+            </label>
+            <input name="" id="textinput14" placeholder="" value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="equipoMedida">
+                Equipo de Medida
+            </label>
+            <input name="equipoMedida" id="equipoMedida" placeholder="" value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="selectmenu">
+            <label for="selectmenu15">
+                Tipo de reporte
+            </label>
+            <select id="selectmenu15" name="tipoDeReporte" data-theme="a">
+                <option value="">
+                    Seleccione...
+                </option>
+                <option value="1">
+                    Tipo entre Agentes
+                </option>
+                <option value="2">
+                    Tipo Regulado
+                </option>
+                <option value="3">
+                    Tipo No Regulado
+                </option>
+                <option value="4">
+                    Alumbrado Publ. Sin equipo de medida
+                </option>
+                <option value="5">
+                    Alumbrado Publ. Con equipo de medida
+                </option>
+                <option value="6">
+                    Tipo Tie
+                </option>
+                <option value="7">
+                    Tipo Internacional
+                </option>
+                <option value="8">
+                    Tipo Distribución
+                </option>
+            </select>
+        </div>
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="#detalleFronteras" data-transition="slide" data-theme="a" data-icon="check">
+                        Guardar
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
 </html>
