@@ -73,7 +73,7 @@ $(function() {
 					'Desea Salir de la Aplicación?',     
 					doLogout,      
 					'Logout',            
-					['Salir','Cancelar']
+					['Cancelar','Salir']
 					);
 				}
 				else {
@@ -92,7 +92,7 @@ $(function() {
 			
 			var doLogout = function (buttonIndex) {
 				console.log("buttonIndex "+buttonIndex);
-				if(buttonIndex == 1) {
+				if(buttonIndex == 2) {
 					console.log("Logging out");
 					var user = Kinvey.getActiveUser();
 					 Kinvey.User.logout({
