@@ -93,14 +93,17 @@ $(function() {
 			var doLogout = function (buttonIndex) {
 				console.log("buttonIndex "+buttonIndex);
 				if(buttonIndex == 2) {
+					$.mobile.loading('show');
 					console.log("Logging out");
 					var user = Kinvey.getActiveUser();
 					 Kinvey.User.logout({
 						success: function() {
 							$.mobile.changePage('#logon'); 
+							$.mobile.loading('hide');
 						},
 						error: function(e) {
 							$.mobile.changePage('#logon'); 
+							$.mobile.loading('hide');
 						}
 					});
 				}
@@ -221,6 +224,7 @@ $(function() {
     				success: function(items) {
 					   console.log("Consulta satisfactoria de requerimientos");
                        $('#desReqListaRequerimientos').empty();
+					   $('#desReqListaRequerimientos').append('<li data-role="list-divider" role="heading">Seleccione Para Desistir Requerimiento</li>');
 					   $.each(items, function(index, item) {
 						  console.log(item.CodigoSIC);
 						  $('#desReqListaRequerimientos').append('<li data-theme="c"><a href="#desistirRequerimiento" data-transition="slide">'
@@ -232,10 +236,10 @@ $(function() {
 					},	
 					error: function(e) {
 						console.log("Problemas consultando requerimientos");
+						$.mobile.loading('hide');
 					}
 				 });
                  $.mobile.changePage('#detalleRequerimiento');
-                 $.mobile.loading('hide');
             });
             
             
@@ -244,8 +248,57 @@ $(function() {
             $("#fronBusSearch").click(function () {
                  $.mobile.loading('show');
                  console.log("Buscando fronteras....");
-                 $.mobile.changePage('#detalleFronteras');
-                 $.mobile.loading('hide');
+				 var fronBusSic = $("#fronBusSic").val();
+				 var query = new Kinvey.Query();
+				 query.equalTo('CodigoSIC', fronBusSic);
+				 var fronBusCodProCon = $("#reqBusEstReq").val();
+				 var query2 = new Kinvey.Query();
+				 query2.equalTo('CodigoPropioContador', fronBusCodProCon);
+				 query.or(query2);
+				 var fronBusFronTipo = $("#fronBusFronTipo").val();
+				 var query3 = new Kinvey.Query();
+				 query3.equalTo('TipoFrontera', fronBusFronTipo);
+				 query.or(query3);
+				 var fronBusNombre = $("#fronBusNombre").val();
+				 var query4 = new Kinvey.Query();
+				 query4.equalTo('Nombre', fronBusNombre);
+				 query.or(query4);
+				 var fronBusNivTension = $("#fronBusNivTension").val();
+				 var query5 = new Kinvey.Query();
+				 query5.equalTo('NivelTension', fronBusNivTension);
+				 query.or(query5);
+				 var fronBusNiu = $("#fronBusNiu").val();
+				 var query6 = new Kinvey.Query();
+				 query6.equalTo('NIU', fronBusNiu);
+				 query.or(query6);
+				 var fronBusCiudad = $("#fronBusCiudad").val();
+				 var query7 = new Kinvey.Query();
+				 query7.equalTo('Ciudad', fronBusCiudad);
+				 query.or(query7);
+				 var fronBusAgente = $("#fronBusAgente").val();
+				 var query8 = new Kinvey.Query();
+				 query8.equalTo('Agente', fronBusAgente);
+				 query.or(query8);
+				 
+				 var promiseFronteras = Kinvey.DataStore.find('Fronteras', query, {
+    				success: function(items) {
+					   console.log("Consulta satisfactoria de fronteras");
+                       $('#desReqListaFronteras').empty();
+					   $('#desReqListaFronteras').append('<li data-role="list-divider" role="heading">Seleccione Para Reporte de Falla/Hurto</li>');
+					   $.each(items, function(index, item) {
+						  console.log(item.CodigoSIC);
+						  $('#desReqListaFronteras').append('<li data-theme="c"><a href="#reporteFallaHurto" data-transition="slide">'
+						  + "NIU:  " + item.NIU + "<br/>Nombre:  " + item.Nombre+ "<br/>CodigoSIC:  "  + item.CodigoSIC
+						  +'</a></li>');
+					   });
+					   $('#desReqListaFronteras').listview('refresh');
+					   $.mobile.loading('hide');
+					},	
+					error: function(e) {
+						console.log("Problemas consultando fronteras");
+					}
+				 });
+				 $.mobile.changePage('#detalleFronteras');
             });
             
             $(document).bind("mobileinit", function () {
@@ -261,7 +314,7 @@ $(function() {
             };
 			
 			var tomarFoto = function () {
-				console.log('Por tomarFoto...');
+				console.log('Por tomar foto...');
 				if (!navigator.camera) {
 					showAlert("Camera API not supported", "Error");
 					return;
@@ -276,12 +329,11 @@ $(function() {
 						$('#image').attr('src', "data:image/jpeg;base64," + imageData);
 					},
 					function() {
-						alert('Error taking picture');
+						showAlert('Error tomando foto. Intente de nuevo más tarde', "Error");
 					},
 					options);
 				return false;
 			};
-			
 			
 			$("#tomarFotoBtn").click(function () {
 			  tomarFoto();
