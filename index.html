@@ -182,124 +182,111 @@ id="requerimientosBusqueda">
         </div>
     </div>
 </div>
-  <div data-role="page" data-control-title="Desistir Requerimiento" data-theme="a"
-  id="desistirRequerimiento">
-      <div data-theme="a" data-role="header" data-position="fixed">
-          <a data-role="button" data-transition="slide" href="#menu" data-icon="home"
-          data-iconpos="left" class="ui-btn-right">
-              Home
-          </a>
-          <a data-role="button" data-direction="reverse" data-transition="slide"
-          data-theme="b" href="#detalleRequerimiento" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
-              Atràs
-          </a>
-          <h3>
-              Desistimiento
-          </h3>
-      </div>
-      <div data-role="content">
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="textinput17">
-                  Requerimiento
-              </label>
-              <input name="requerimientoID" id="textinput17" placeholder="" value=""
-              type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="dateinput">
-              <label for="dateinput3">
-                  Fecha de Solicitud
-              </label>
-              <input name="" id="dateinput3" placeholder="" value="" type="date">
-          </div>
-          <div data-role="fieldcontain" data-controltype="selectmenu">
-              <label for="selectmenu13">
-                  Tipo de requerimiento
-              </label>
-              <select id="selectmenu13" name="tipoReq" data-theme="a">
-                  <option value="">
-                      Seleccione...
-                  </option>
-                  <option value="1">
-                      Reporte falla/hurto
-                  </option>
-                  <option value="2">
-                      Registro frontera nueva
-                  </option>
-                  <option value="3">
-                      Cancelación frontera
-                  </option>
-              </select>
-          </div>
-          <div data-role="fieldcontain" data-controltype="selectmenu">
-              <label for="selectmenu12">
-                  Tipo de Frontera
-              </label>
-              <select id="selectmenu12" name="tipoFrontera" data-theme="a">
-                  <option value="">
-                      Seleccione...
-                  </option>
-                  <option value="1">
-                      Revisión
-                  </option>
-                  <option value="2">
-                      Aprobado
-                  </option>
-                  <option value="2">
-                      Guardado
-                  </option>
-              </select>
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="textinput16">
-                  Nombre de la Frontera
-              </label>
-              <input name="codigoSIc" id="textinput16" placeholder="" value="" type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="textinput21">
-                  Representante de la Frontera
-              </label>
-              <input name="codigoSIc" id="textinput21" placeholder="" value="" type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="textinput22">
-                  Código SIC
-              </label>
-              <input name="codigoSIc" id="textinput22" placeholder="" value="" type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="textinput23">
-                  Contacto
-              </label>
-              <input name="codigoSIc" id="textinput23" placeholder="" value="" type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput">
-              <label for="textinput24">
-                  Requerimiento Asociado
-              </label>
-              <input name="codigoSIc" id="textinput24" placeholder="" value="" type="text">
-          </div>
-          <div data-role="fieldcontain" data-controltype="textarea">
-              <label for="textarea1">
-                  Motivo Desistimiento
-              </label>
-              <textarea name="" id="textarea1" placeholder=""></textarea>
-          </div>
-      </div>
-      <div data-theme="a" data-role="footer" data-position="fixed">
-          <div data-role="navbar" data-iconpos="top">
-              <ul>
-                  <li>
-                      <a href="#detalleRequerimiento" data-transition="slide" data-theme="b"
-                      data-icon="check">
-                          Desistir
-                      </a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </div>
-  <div data-role="page" data-control-title="Requerimientos_list" data-theme="a"
+<div data-role="page" data-control-title="Desistir Requerimiento" data-theme="a"
+id="desistirRequerimiento">
+    <div data-theme="a" data-role="header" data-position="fixed">
+        <a data-role="button" data-transition="slide" data-theme="a" href="#menu"
+        data-icon="home" data-iconpos="left" class="ui-btn-right">
+            Home
+        </a>
+        <a data-role="button" data-direction="reverse" data-transition="slide"
+        data-theme="a" href="#detalleRequerimiento" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+            Atràs
+        </a>
+        <h3>
+            Desistimiento
+        </h3>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="desReqRequerimiento">
+                Requerimiento
+            </label>
+            <input name="desReqRequerimiento" id="desReqRequerimiento" placeholder=""
+            value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="dateinput">
+            <label for="desReqFecSolicitud">
+                Fecha de Solicitud
+            </label>
+            <input name="desReqFecSolicitud" id="desReqFecSolicitud" placeholder=""
+            value="" type="date">
+        </div>
+        <div data-role="fieldcontain" data-controltype="selectmenu">
+            <label for="desReqTipRequerimiento">
+                Tipo de requerimiento
+            </label>
+            <select id="desReqTipRequerimiento" name="desReqTipRequerimiento" data-theme="a">
+                <option value="">
+                    Seleccione...
+                </option>
+            </select>
+        </div>
+        <div data-role="fieldcontain" data-controltype="selectmenu">
+            <label for="desReqTipFrontera">
+                Tipo de Frontera
+            </label>
+            <select id="desReqTipFrontera" name="desReqTipFrontera" data-theme="a">
+                <option value="">
+                    Seleccione...
+                </option>
+            </select>
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="desReqNomFrontera">
+                Nombre de la Frontera
+            </label>
+            <input name="desReqNomFrontera" id="desReqNomFrontera" placeholder=""
+            value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="desReqRepFrontera">
+                Representante de la Frontera
+            </label>
+            <input name="desReqRepFrontera" id="desReqRepFrontera" placeholder=""
+            value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="desReqCodSic">
+                Código SIC
+            </label>
+            <input name="desReqCodSic" id="desReqCodSic" placeholder="" value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="desReqContacto">
+                Contacto
+            </label>
+            <input name="desReqContacto" id="desReqContacto" placeholder="" value=""
+            type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="desReqReqAsociado">
+                Requerimiento Asociado
+            </label>
+            <input name="desReqReqAsociado" id="desReqReqAsociado" placeholder=""
+            value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textarea">
+            <label for="desReqMotDesistimiento">
+                Motivo Desistimiento
+            </label>
+            <textarea name="desReqMotDesistimiento" id="desReqMotDesistimiento" placeholder=""></textarea>
+        </div>
+        <a id="desReqBtnDesistir" data-role="button" href="#">
+            Desistir Requerimiento
+        </a>
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <div data-controltype="textblock">
+            <h6 data-mce-style="text-align: center;" style="text-align: center;">
+                <span>
+                    XM S.A. E.S.P.
+                </span>
+            </h6>
+        </div>
+    </div>
+</div>
+<div data-role="page" data-control-title="Requerimientos_list" data-theme="a"
 id="detalleRequerimiento">
     <div data-theme="a" data-role="header">
         <a data-role="button" data-transition="slide" data-theme="a" href="#menu"
@@ -370,16 +357,7 @@ id="detalleRequerimiento">
               <li data-role="list-divider" role="heading">
                   Seleccione Para Reporte de Falla/Hurto
               </li>
-              <li data-theme="c">
-                  <a href="#reporteFallaHurto" data-transition="slide">
-                      Frt00605 Alimentos Polar
-                  </a>
-              </li>
-              <li data-theme="c">
-                  <a href="#reporteFallaHurto" data-transition="slide">
-                      Frt02582 Clinica Meta
-                  </a>
-              </li>
+              
           </ul>
       </div>
   </div>
@@ -500,150 +478,115 @@ id="reporteFallaHurto">
         <a id="tomarFotoBtn" data-role="button" href="#">
             Tomar Foto
         </a>
-		<img id='image' width="220" height="220" style="float:left;margin:10px;"/>
         <div data-role="fieldcontain" data-controltype="textinput">
-            <label for="requerimientoTxt">
+            <label for="falHurRequerimiento">
                 Requerimiento
             </label>
-            <input name="" id="requerimientoTxt" placeholder="" value="" type="text">
+            <input name="falHurRequerimiento" id="falHurRequerimiento" placeholder=""
+            value="" type="text">
         </div>
         <div data-role="fieldcontain" data-controltype="textinput">
-            <label for="contactoTxt">
+            <label for="falHurContacto">
                 Contacto
             </label>
-            <input name="" id="contactoTxt" placeholder="" value="" type="text">
+            <input name="falHurContacto" id="falHurContacto" placeholder="" value=""
+            type="text">
         </div>
         <div data-role="fieldcontain" data-controltype="dateinput">
-            <label for="dateinput1">
+            <label for="falHurFechaInicio">
                 Fecha de Inicio
             </label>
-            <input name="" id="dateinput1" placeholder="" value="" type="date">
+            <input name="falHurFechaInicio" id="falHurFechaInicio" placeholder=""
+            value="" type="date">
         </div>
         <div data-role="fieldcontain" data-controltype="selectmenu">
-            <label for="selectmenu14">
+            <label for="falHurTipRequerimiento">
                 Tipo de Requerimiento
             </label>
-            <select id="selectmenu14" name="" data-theme="a">
+            <select id="falHurTipRequerimiento" name="falHurTipRequerimiento" data-theme="a">
                 <option value="">
                     Seleccione...
                 </option>
             </select>
         </div>
         <div data-role="fieldcontain" data-controltype="dateinput">
-            <label for="dateinput2">
+            <label for="falHurFecMax">
                 Fecha Máxima
             </label>
-            <input name="" id="dateinput2" placeholder="" value="" type="date">
+            <input name="falHurFecMax" id="falHurFecMax" placeholder="" value="" type="date">
         </div>
         <div data-role="fieldcontain" data-controltype="textinput">
-            <label for="textinput11">
+            <label for="falHurCodSIC">
                 Codigo SIC
             </label>
-            <input name="SicCode" id="textinput11" placeholder="" value="" type="text">
+            <input name="falHurCodSIC" id="falHurCodSIC" placeholder="" value="" type="text">
         </div>
         <div data-role="fieldcontain" data-controltype="textinput">
-            <label for="textinput12">
+            <label for="falHurRepFrontera">
                 Representante de la Frontera
             </label>
-            <input name="codPropioContador" id="textinput12" placeholder="" value=""
+            <input name="falHurRepFrontera" id="falHurRepFrontera" placeholder=""
+            value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="selectmenu">
+            <label for="falHurTipFrontera">
+                Tipo de Frontera
+            </label>
+            <select id="falHurTipFrontera" name="falHurTipFrontera" data-theme="a">
+                <option value="">
+                    Seleccione...
+                </option>
+               
+            </select>
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="falHurAgeReporta">
+                Agente Reporta
+            </label>
+            <input name="falHurAgeReporta" id="falHurAgeReporta" placeholder="" value=""
+            type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="falHurNomFrontera">
+                Nombre Frontera
+            </label>
+            <input name="falHurNomFrontera" id="falHurNomFrontera" placeholder=""
+            value="" type="text">
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="falHureqMedida">
+                Equipo de Medida
+            </label>
+            <input name="falHureqMedida" id="falHureqMedida" placeholder="" value=""
             type="text">
         </div>
         <div data-role="fieldcontain" data-controltype="selectmenu">
-            <label for="selectmenu8">
-                Tipo de Frontera
-            </label>
-            <select id="selectmenu8" name="ReqType" data-theme="a">
-                <option value="">
-                    Seleccione...
-                </option>
-                <option value="1">
-                    Tipo entre Agentes
-                </option>
-                <option value="2">
-                    Tipo Regulado
-                </option>
-                <option value="3">
-                    Tipo No Regulado
-                </option>
-                <option value="4">
-                    Alumbrado Publ. Sin equipo de medida
-                </option>
-                <option value="5">
-                    Alumbrado Publ. Con equipo de medida
-                </option>
-                <option value="6">
-                    Tipo Tie
-                </option>
-                <option value="7">
-                    Tipo Internacional
-                </option>
-                <option value="8">
-                    Tipo Distribución
-                </option>
-            </select>
-        </div>
-        <div data-role="fieldcontain" data-controltype="textinput">
-            <label for="textinput13">
-                Agente Reporta
-            </label>
-            <input name="agenteReporta" id="textinput13" placeholder="" value="" type="text">
-        </div>
-        <div data-role="fieldcontain" data-controltype="textinput">
-            <label for="textinput14">
-                Nombre Frontera
-            </label>
-            <input name="" id="textinput14" placeholder="" value="" type="text">
-        </div>
-        <div data-role="fieldcontain" data-controltype="textinput">
-            <label for="equipoMedida">
-                Equipo de Medida
-            </label>
-            <input name="equipoMedida" id="equipoMedida" placeholder="" value="" type="text">
-        </div>
-        <div data-role="fieldcontain" data-controltype="selectmenu">
-            <label for="selectmenu15">
+            <label for="falHurTipReporte">
                 Tipo de reporte
             </label>
-            <select id="selectmenu15" name="tipoDeReporte" data-theme="a">
+            <select id="falHurTipReporte" name="falHurTipReporte" data-theme="a">
                 <option value="">
                     Seleccione...
                 </option>
                 <option value="1">
-                    Tipo entre Agentes
+                    Falla
                 </option>
                 <option value="2">
-                    Tipo Regulado
-                </option>
-                <option value="3">
-                    Tipo No Regulado
-                </option>
-                <option value="4">
-                    Alumbrado Publ. Sin equipo de medida
-                </option>
-                <option value="5">
-                    Alumbrado Publ. Con equipo de medida
-                </option>
-                <option value="6">
-                    Tipo Tie
-                </option>
-                <option value="7">
-                    Tipo Internacional
-                </option>
-                <option value="8">
-                    Tipo Distribución
+                    Hurto
                 </option>
             </select>
         </div>
+        <a id="falHurBtnGuardar" data-role="button" href="#">
+            Guardar Reporte
+        </a>
     </div>
     <div data-theme="a" data-role="footer" data-position="fixed">
-        <div data-role="navbar" data-iconpos="top">
-            <ul>
-                <li>
-                    <a href="#detalleFronteras" data-transition="slide" data-theme="a" data-icon="check">
-                        Guardar
-                    </a>
-                </li>
-            </ul>
+        <div data-controltype="textblock">
+            <h6 data-mce-style="text-align: center;" style="text-align: center;">
+                <span>
+                    XM S.A. E.S.P.
+                </span>
+            </h6>
         </div>
     </div>
 </div>

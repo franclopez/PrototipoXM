@@ -254,9 +254,69 @@ $(function() {
 			
 			$(document).on("pageshow", "#desistirRequerimiento", function () {
 					console.log("pageshow del desistirRequerimiento");
+					$.mobile.loading('show');
 					console.log("Obteniendo Requerimiento con id: " +requerimientoInfo.id);
+					var promise = Kinvey.DataStore.find('TiposFrontera', null, {
+						success: function(items) {
+						   var list = $("#desReqTipFrontera");
+						   $.each(items, function(index, item) {
+							  list.append(new Option(item.Nombre, item.Id));
+						   });
+						}
+					});
+					var promise2 = Kinvey.DataStore.find('TiposRequerimiento', null, {
+						 success: function(items) {
+						   var list = $("#desReqTipRequerimiento");
+						   $.each(items, function(index, item) {
+							  list.append(new Option(item.Nombre, item.Id));
+						   });
+						   
+						 }
+				    });
+					var query = new Kinvey.Query();
+					query.equalTo('_id', requerimientoInfo.id);
+					var promiseCiudad = Kinvey.DataStore.find('Requerimientos', query, {
+						 success: function(response) {
+						   $.each(response, function(index, item) {
+							    console.log("Requerimiento found: "+item.IDRequerimiento);
+								$("#desReqRequerimiento").val(item.IDRequerimiento);
+								$("#desReqNomFrontera").val(item.Agente);
+								$("#desReqRepFrontera").val(item.Agente);
+								$("#desReqTipRequerimiento").val(item.TipoRequerimiento).selectmenu('refresh');
+								$("#desReqTipFrontera").val(item.TipoFrontera).selectmenu('refresh');
+								$("#desReqReqAsociado").val(item.IDRequerimiento);
+								$("#desReqCodSic").val(item.CodigoSIC);
+						   });
+						 }
+					});
+					$.mobile.loading('hide');
 			});
+			
+			$("#desReqBtnDesistir").click(function () {
+                showConfirmDesistir();
+            });
+			
+			var showConfirmDesistir = function() {
+				if(navigator.notification){
+					navigator.notification.confirm(
+					'Desea Desistir el Requerimiento?',     
+					doDesistir,      
+					'Desistir Requerimiento',            
+					['Cancelar','Desistir']
+					);
+				}
+				else {
+					alert("Se desistirá el requerimiento");
+				}
+			};
             
+			var doDesistir = function() {
+			  navigator.notification.alert('Se Desistío el Requerimiento',     
+					null,      
+					'Desistir Requerimiento',
+					'OK');
+			}
+						
             var fronteraInfo = {
 				id : null,
 				result : null
@@ -328,7 +388,68 @@ $(function() {
 			$(document).on("pageshow", "#reporteFallaHurto", function () {
 					console.log("pageshow del reporteFallaHurto");
 					console.log("Obteniendo frontera con id: " +fronteraInfo.id);
+					var promise = Kinvey.DataStore.find('TiposFrontera', null, {
+						success: function(items) {
+						   var list = $("#falHurTipFrontera");
+						   $.each(items, function(index, item) {
+							  list.append(new Option(item.Nombre, item.Id));
+						   });
+						}
+					});
+					var promise2 = Kinvey.DataStore.find('TiposRequerimiento', null, {
+						 success: function(items) {
+						   var list = $("#falHurTipRequerimiento");
+						   $.each(items, function(index, item) {
+							  list.append(new Option(item.Nombre, item.Id));
+						   });
+						   
+						 }
+				    });
+					var query = new Kinvey.Query();
+					query.equalTo('_id', fronteraInfo.id);
+					var promiseFrontera = Kinvey.DataStore.find('Fronteras', query, {
+						 success: function(response) {
+						   $.each(response, function(index, item) {
+							    console.log("Frontera found: "+item.CodigoSIC);
+								$("#falHurRequerimiento").val(item.CodigoPropioContador);
+								$("#falHurContacto").val(item.Contacto);
+								$("#falHurRepFrontera").val(item.RepresentanteFrontera);
+								$("#falHurTipRequerimiento").val('3').selectmenu('refresh');
+								$("#falHurTipFrontera").val(item.TipoFrontera).selectmenu('refresh');
+								$("#falHurAgeReporta").val(item.Agente);
+								$("#falHurCodSIC").val(item.CodigoSIC);
+								$("#falHurNomFrontera").val(item.Nombre);
+						   });
+						   $.mobile.loading('hide');
+						 }
+					});
+					$.mobile.loading('hide');
 			});
+			
+			$("#falHurBtnGuardar").click(function () {
+                showConfirmReporte();
+            });
+			
+			var showConfirmReporte = function() {
+				if(navigator.notification){
+					navigator.notification.confirm(
+					'Desea Registrar el Requerimiento?',     
+					doRegistrar,      
+					'Registrar Falla Hurto',            
+					['Cancelar','Registrar']
+					);
+				}
+				else {
+					alert("Se registrará el requerimiento");
+				}
+			};
+            
+			var doRegistrar = function() {
+			  navigator.notification.alert('Se registró el Requerimiento',     
+					null,      
+					'Registrar Requerimiento',
+					'OK');
+			}
             
             $(document).bind("mobileinit", function () {
                 $.mobile.listview.prototype.options.filterPlaceholder = "Filtrar Datos...";
