@@ -312,10 +312,16 @@ $(function() {
 			};
             
 			var doDesistir = function() {
-			  navigator.notification.alert('Se Desistío el Requerimiento',     
-					null,      
-					'Desistir Requerimiento',
-					'OK');
+				if(buttonIndex == 2) {
+				  navigator.notification.alert('Se Desistío el Requerimiento',     
+						goHome,      
+						'Desistir Requerimiento',
+						'OK');
+				}
+			}
+			
+			var goHome = function() {
+				$.mobile.changePage('#menu');
 			}
 						
             var fronteraInfo = {
@@ -448,10 +454,12 @@ $(function() {
 			};
             
 			var doRegistrar = function() {
-			  navigator.notification.alert('Se registró el Requerimiento',     
-					null,      
+			 if(buttonIndex == 2) {
+				navigator.notification.alert('Se registró el Requerimiento',     
+					goHome,      
 					'Registrar Requerimiento',
 					'OK');
+			 }
 			}
             
             $(document).bind("mobileinit", function () {
