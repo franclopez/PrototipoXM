@@ -280,6 +280,7 @@ $(function() {
 						   $.each(response, function(index, item) {
 							    console.log("Requerimiento found: "+item.IDRequerimiento);
 								$("#desReqRequerimiento").val(item.IDRequerimiento);
+								document.getElementById("desReqFecSolicitud").valueAsDate = new Date();
 								$("#desReqNomFrontera").val(item.Agente);
 								$("#desReqRepFrontera").val(item.Agente);
 								$("#desReqTipRequerimiento").val(item.TipoRequerimiento).selectmenu('refresh');
@@ -411,6 +412,8 @@ $(function() {
 						 success: function(response) {
 						   $.each(response, function(index, item) {
 							    console.log("Frontera found: "+item.CodigoSIC);
+								document.getElementById("falHurFechaInicio").valueAsDate = new Date();
+								document.getElementById("falHurFecMax").valueAsDate = new Date();
 								$("#falHurRequerimiento").val(item.CodigoPropioContador);
 								$("#falHurContacto").val(item.Contacto);
 								$("#falHurRepFrontera").val(item.RepresentanteFrontera);
