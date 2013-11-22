@@ -200,6 +200,16 @@ $(function() {
 				});
 			});
 			
+			var requerimientoInfo = {
+				id : null,
+				result : null
+			}
+			
+			$(document).on('vclick', '#desReqListaRequerimientos li a', function(){  
+				requerimientoInfo.id = $(this).attr('data-id');
+				$.mobile.changePage( "#desistirRequerimiento", { transition: "slide", changeHash: false });
+			});
+			
 		  //Realizar Busqueda de Requerimientos
             $("#reqBusSearch").click(function () {
                  $.mobile.loading('show');
@@ -227,8 +237,8 @@ $(function() {
 					   $('#desReqListaRequerimientos').append('<li data-role="list-divider" role="heading">Seleccione Para Desistir Requerimiento</li>');
 					   $.each(items, function(index, item) {
 						  console.log(item.CodigoSIC);
-						  $('#desReqListaRequerimientos').append('<li data-theme="c"><a href="#desistirRequerimiento" data-transition="slide">'
-						  + "IDReq:  " + item.IDRequerimiento + "<br/>Agente:  " + item.Agente+ "<br/>CodigoSIC:  "  + item.CodigoSIC
+						  $('#desReqListaRequerimientos').append('<li data-theme="c"><a href="" data-transition="slide" data-id="' +item._id
+						  + '">IDReq:  ' + item.IDRequerimiento + "<br/>Agente:  " + item.Agente+ "<br/>CodigoSIC:  "  + item.CodigoSIC
 						  +'</a></li>');
 					   });
 					   $('#desReqListaRequerimientos').listview('refresh');
@@ -241,9 +251,22 @@ $(function() {
 				 });
                  $.mobile.changePage('#detalleRequerimiento');
             });
+			
+			$(document).on("pageshow", "#desistirRequerimiento", function () {
+					console.log("pageshow del desistirRequerimiento");
+					console.log("Obteniendo Requerimiento con id: " +requerimientoInfo.id);
+			});
             
-            
-            
+            var fronteraInfo = {
+				id : null,
+				result : null
+			}
+			
+			$(document).on('vclick', '#desReqListaFronteras li a', function(){  
+				fronteraInfo.id = $(this).attr('data-id');
+				$.mobile.changePage( "#reporteFallaHurto", { transition: "slide", changeHash: false });
+			});
+						
             //Realizar Busqueda de Fronteras
             $("#fronBusSearch").click(function () {
                  $.mobile.loading('show');
@@ -287,8 +310,8 @@ $(function() {
 					   $('#desReqListaFronteras').append('<li data-role="list-divider" role="heading">Seleccione Para Reporte de Falla/Hurto</li>');
 					   $.each(items, function(index, item) {
 						  console.log(item.CodigoSIC);
-						  $('#desReqListaFronteras').append('<li data-theme="c"><a href="#reporteFallaHurto" data-transition="slide">'
-						  + "NIU:  " + item.NIU + "<br/>Nombre:  " + item.Nombre+ "<br/>CodigoSIC:  "  + item.CodigoSIC
+						  $('#desReqListaFronteras').append('<li data-theme="c"><a href=""  data-transition="slide" data-id="' +item._id
+						  + '">NIU:  ' + item.NIU + "<br/>Nombre:  " + item.Nombre+ "<br/>CodigoSIC:  "  + item.CodigoSIC
 						  +'</a></li>');
 					   });
 					   $('#desReqListaFronteras').listview('refresh');
@@ -300,6 +323,12 @@ $(function() {
 				 });
 				 $.mobile.changePage('#detalleFronteras');
             });
+			
+			
+			$(document).on("pageshow", "#reporteFallaHurto", function () {
+					console.log("pageshow del reporteFallaHurto");
+					console.log("Obteniendo frontera con id: " +fronteraInfo.id);
+			});
             
             $(document).bind("mobileinit", function () {
                 $.mobile.listview.prototype.options.filterPlaceholder = "Filtrar Datos...";
@@ -336,7 +365,7 @@ $(function() {
 			};
 			
 			$("#tomarFotoBtn").click(function () {
-			  tomarFoto();
+			  tomarFoto(); 
 			});
 			
 			
