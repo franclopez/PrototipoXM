@@ -254,7 +254,7 @@ $(function() {
 			
 			$(document).on("pageshow", "#desistirRequerimiento", function () {
 					console.log("pageshow del desistirRequerimiento");
-					$.mobile.loading('true');
+					$.mobile.loading('show');
 					$.mobile.loader.prototype.options.text = "Por Favor Espere...";
 					$.mobile.loader.prototype.options.textVisible = true;
 					$.mobile.loader.prototype.options.theme = "a";
@@ -403,10 +403,7 @@ $(function() {
 			
 			$(document).on("pageshow", "#reporteFallaHurto", function () {
 					console.log("pageshow del reporteFallaHurto");
-					$.mobile.loading('true');
-					$.mobile.loader.prototype.options.text = "Por Favor Espere...";
-					$.mobile.loader.prototype.options.textVisible = true;
-					$.mobile.loader.prototype.options.theme = "a";
+					$.mobile.loading('show');
 					console.log("Obteniendo frontera con id: " +fronteraInfo.id);
 					var promise = Kinvey.DataStore.find('TiposFrontera', null, {
 						success: function(items) {
