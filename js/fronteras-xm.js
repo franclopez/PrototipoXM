@@ -254,7 +254,10 @@ $(function() {
 			
 			$(document).on("pageshow", "#desistirRequerimiento", function () {
 					console.log("pageshow del desistirRequerimiento");
-					$.mobile.loading('show');
+					$.mobile.loading('true');
+					$.mobile.loader.prototype.options.text = "Por Favor Espere...";
+					$.mobile.loader.prototype.options.textVisible = true;
+					$.mobile.loader.prototype.options.theme = "a";
 					console.log("Obteniendo Requerimiento con id: " +requerimientoInfo.id);
 					var promise = Kinvey.DataStore.find('TiposFrontera', null, {
 						success: function(items) {
@@ -282,11 +285,17 @@ $(function() {
 								$("#desReqRequerimiento").val(item.IDRequerimiento);
 								document.getElementById("desReqFecSolicitud").valueAsDate = new Date();
 								$("#desReqNomFrontera").val(item.Agente);
+								$('#desReqNomFrontera').attr('readonly', true);
 								$("#desReqRepFrontera").val(item.Agente);
+								$('#desReqRepFrontera').attr('readonly', true);
 								$("#desReqTipRequerimiento").val(item.TipoRequerimiento).selectmenu('refresh');
+								$('#desReqTipRequerimiento').attr('readonly', true);
 								$("#desReqTipFrontera").val(item.TipoFrontera).selectmenu('refresh');
+								$('#desReqTipFrontera').attr('readonly', true);
 								$("#desReqReqAsociado").val(item.IDRequerimiento);
+								$('#falHurNomFrontera').attr('readonly', true);
 								$("#desReqCodSic").val(item.CodigoSIC);
+								$('#desReqCodSic').attr('readonly', true);
 						   });
 						 }
 					});
@@ -394,6 +403,10 @@ $(function() {
 			
 			$(document).on("pageshow", "#reporteFallaHurto", function () {
 					console.log("pageshow del reporteFallaHurto");
+					$.mobile.loading('true');
+					$.mobile.loader.prototype.options.text = "Por Favor Espere...";
+					$.mobile.loader.prototype.options.textVisible = true;
+					$.mobile.loader.prototype.options.theme = "a";
 					console.log("Obteniendo frontera con id: " +fronteraInfo.id);
 					var promise = Kinvey.DataStore.find('TiposFrontera', null, {
 						success: function(items) {
@@ -409,7 +422,6 @@ $(function() {
 						   $.each(items, function(index, item) {
 							  list.append(new Option(item.Nombre, item.Id));
 						   });
-						   
 						 }
 				    });
 					var query = new Kinvey.Query();
@@ -421,15 +433,22 @@ $(function() {
 								document.getElementById("falHurFechaInicio").valueAsDate = new Date();
 								document.getElementById("falHurFecMax").valueAsDate = new Date();
 								$("#falHurRequerimiento").val(item.CodigoPropioContador);
+								$('#falHurRequerimiento').attr('readonly', true);
 								$("#falHurContacto").val(item.Contacto);
+								$('#falHurContacto').attr('readonly', true);
 								$("#falHurRepFrontera").val(item.RepresentanteFrontera);
+								$('#falHurRepFrontera').attr('readonly', true);
 								$("#falHurTipRequerimiento").val('3').selectmenu('refresh');
+								$('#falHurTipRequerimiento').attr('readonly', true);
 								$("#falHurTipFrontera").val(item.TipoFrontera).selectmenu('refresh');
+								$('#falHurTipFrontera').attr('readonly', true);
 								$("#falHurAgeReporta").val(item.Agente);
+								$('#falHurAgeReporta').attr('readonly', true);
 								$("#falHurCodSIC").val(item.CodigoSIC);
+								$('#falHurCodSIC').attr('readonly', true);
 								$("#falHurNomFrontera").val(item.Nombre);
+								$('#falHurNomFrontera').attr('readonly', true);
 						   });
-						   $.mobile.loading('hide');
 						 }
 					});
 					$.mobile.loading('hide');
