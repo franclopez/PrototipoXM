@@ -134,6 +134,8 @@ id="requerimientosBusqueda">
     </div>
     <div data-role="content">
         <form id="reqBusForm" action="">
+		<div data-role="collapsible" data-content-theme="a">
+			<h3>Criterios de Búsqueda</h3>
             <div data-role="fieldcontain" data-controltype="selectmenu">
                 <label for="reqBusEstReq">
                     Estado del requerimiento
@@ -170,6 +172,7 @@ id="requerimientosBusqueda">
             data-iconpos="left" data-iconsize="26">
                 Buscar Requerimientos
             </a>
+		  </div>
         </form>
     </div>
     <div data-theme="a" data-role="footer" data-position="fixed">
@@ -198,6 +201,8 @@ id="desistirRequerimiento">
         </h3>
     </div>
     <div data-role="content">
+	   <div data-role="collapsible" data-content-theme="a">
+	    <h3>Criterios de Búsqueda</h3>
         <div data-role="fieldcontain" data-controltype="textinput">
             <label for="desReqRequerimiento">
                 Requerimiento
@@ -275,7 +280,8 @@ id="desistirRequerimiento">
         <a id="desReqBtnDesistir" data-role="button" href="#">
             Desistir Requerimiento
         </a>
-    </div>
+     </div>
+	</div>
     <div data-theme="a" data-role="footer" data-position="fixed">
         <div data-controltype="textblock">
             <h6 data-mce-style="text-align: center;" style="text-align: center;">
