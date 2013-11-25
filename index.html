@@ -19,7 +19,6 @@
   <script src="js/kinvey-phonegap-1.1.2.min.js"></script>
   <!--<script src="//da189i1jfloii.cloudfront.net/js/kinvey-html5-1.1.2.min.js"></script>-->
   <script src="js/fronteras-xm.js"></script>
-  
 </head>
 <body>
   <div data-role="page" data-control-title="Logon" data-theme="a" id="logon">
@@ -59,14 +58,18 @@
             <input type="submit" data-theme="b" value="Ingresar">
         </form>
         <div id="login_error" data-controltype="textblock">
-            <p>
-                <b>
-                    <br>
-                </b>
-            </p>
+           
         </div>
-         
       </div>
+	   <div data-theme="a" data-role="footer" data-position="fixed">
+        <div data-controltype="textblock">
+            <h6 data-mce-style="text-align: center;" style="text-align: center;">
+                <span>
+                    XM S.A. E.S.P.
+                </span>
+            </h6>
+        </div>
+    </div>
   </div>
 <div data-role="page" data-control-title="Menu" data-theme="a" id="menu">
     <div data-theme="a" data-role="header" data-position="fixed">
@@ -105,11 +108,11 @@
             <br>
            
         </div>
-        <a data-role="button" data-direction="reverse" href="#requerimientosBusqueda"
+        <a data-role="button" data-direction="reverse" href="#requerimientosBusqueda" 
         data-icon="search" data-iconpos="left">
             Desistir Requerimientos
         </a>
-        <a data-role="button" href="#fronterasBusqueda" data-icon="star" data-iconpos="left">
+        <a data-role="button" href="#fronterasBusqueda" data-icon="star" data-iconpos="left" >
             Reporte Falla Hurto
         </a>
     </div>
@@ -125,16 +128,16 @@
 id="requerimientosBusqueda">
     <div data-theme="a" data-role="header" data-position="fixed">
         <a data-role="button" data-direction="reverse" data-transition="slide"
-        data-theme="a" href="#menu" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
-            Atràs
+        data-theme="a" href="#menu" data-icon="home" data-iconpos="left" class="ui-btn-left">
+            Home
         </a>
         <h3>
-            Requerimientos
+            Desistir
         </h3>
     </div>
     <div data-role="content">
         <form id="reqBusForm" action="">
-		<div data-role="collapsible" data-content-theme="a">
+		<div data-role="collapsible" data-content-theme="a" data-collapsed="false">
 			<h3>Criterios de Búsqueda</h3>
             <div data-role="fieldcontain" data-controltype="selectmenu">
                 <label for="reqBusEstReq">
@@ -175,16 +178,7 @@ id="requerimientosBusqueda">
 		  </div>
         </form>
     </div>
-    <div data-theme="a" data-role="footer" data-position="fixed">
-        <div data-controltype="textblock">
-            <h6 data-mce-style="text-align: center;" style="text-align: center;">
-                <span>
-                    XM S.A. E.S.P.
-                </span>
-            </h6>
-        </div>
-    </div>
-</div>
+ </div>
 <div data-role="page" data-control-title="Desistir Requerimiento" data-theme="a"
 id="desistirRequerimiento">
     <div data-theme="a" data-role="header" data-position="fixed">
@@ -197,12 +191,11 @@ id="desistirRequerimiento">
             Atràs
         </a>
         <h3>
-            Desistimiento
+            Desistir Requerimiento
         </h3>
     </div>
     <div data-role="content">
-	   <div data-role="collapsible" data-content-theme="a">
-	    <h3>Criterios de Búsqueda</h3>
+	   
         <div data-role="fieldcontain" data-controltype="textinput">
             <label for="desReqRequerimiento">
                 Requerimiento
@@ -280,17 +273,8 @@ id="desistirRequerimiento">
         <a id="desReqBtnDesistir" data-role="button" href="#">
             Desistir Requerimiento
         </a>
-     </div>
+     
 	</div>
-    <div data-theme="a" data-role="footer" data-position="fixed">
-        <div data-controltype="textblock">
-            <h6 data-mce-style="text-align: center;" style="text-align: center;">
-                <span>
-                    XM S.A. E.S.P.
-                </span>
-            </h6>
-        </div>
-    </div>
 </div>
 <div data-role="page" data-control-title="Requerimientos_list" data-theme="a"
 id="detalleRequerimiento">
@@ -318,33 +302,7 @@ id="detalleRequerimiento">
 </div>
   <div data-role="page" data-control-title="Fronteras_list" data-theme="a"
   id="detalleFronteras">
-      <div data-role="panel" id="panel2" data-position="right" data-display="reveal"
-      data-theme="a">
-          <ul data-role="listview" data-divider-theme="a" data-inset="false">
-              <li data-role="list-divider" role="heading">
-                  Opciones
-              </li>
-              <li data-theme="a">
-                  <a href="#reporteFallaHurto" data-transition="slide">
-                      Reporte Falla Hurto
-                  </a>
-              </li>
-          </ul>
-      </div>
-      <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
-      data-theme="a">
-          <ul data-role="listview" data-divider-theme="h" data-inset="false">
-              <li data-role="list-divider" role="heading">
-                  Divider
-              </li>
-              <li data-theme="a">
-                  <a href="" data-transition="slide">
-                      Button
-                  </a>
-              </li>
-          </ul>
-      </div>
-      <div data-theme="a" data-role="header">
+     <div data-theme="a" data-role="header">
           <a data-role="button" data-transition="slide" href="#menu" data-icon="home"
           data-iconpos="left" class="ui-btn-right">
               Home
@@ -370,14 +328,16 @@ id="detalleRequerimiento">
   <div data-role="page" data-control-title="Fronteras" data-theme="a" id="fronterasBusqueda">
     <div data-theme="a" data-role="header" data-position="fixed">
         <a data-role="button" data-direction="reverse" data-transition="slide"
-        data-theme="a" href="#menu" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
-            Atràs
+        data-theme="a" href="#menu" data-icon="home" data-iconpos="left" class="ui-btn-left">
+            Home
         </a>
         <h3>
             Fronteras
         </h3>
     </div>
     <div data-role="content">
+	 <div data-role="collapsible" data-content-theme="a" data-collapsed="false">
+	    <h3>Criterios de Búsqueda</h3>
         <div data-role="fieldcontain" data-controltype="textinput">
             <label for="fronBusSic">
                 Codigo SIC
@@ -454,16 +414,8 @@ id="detalleRequerimiento">
         <a id="fronBusSearch" data-role="button" href="#" data-icon="search" data-iconpos="left">
             Buscar Fronteras
         </a>
-    </div>
-    <div data-theme="a" data-role="footer" data-position="fixed">
-        <div data-controltype="textblock">
-            <h6 data-mce-style="text-align: center;" style="text-align: center;">
-                <span>
-                    XM S.A. E.S.P.
-                </span>
-            </h6>
-        </div>
-    </div>
+     </div>
+	</div>
 </div>
 <div data-role="page" data-control-title="Reportar Falla Hurto" data-theme="a"
 id="reporteFallaHurto">
@@ -586,15 +538,6 @@ id="reporteFallaHurto">
         <a id="falHurBtnGuardar" data-role="button" href="#">
             Guardar Reporte
         </a>
-    </div>
-    <div data-theme="a" data-role="footer" data-position="fixed">
-        <div data-controltype="textblock">
-            <h6 data-mce-style="text-align: center;" style="text-align: center;">
-                <span>
-                    XM S.A. E.S.P.
-                </span>
-            </h6>
-        </div>
     </div>
 </div>
 </body>

@@ -654,3 +654,8 @@ a.ui-link-inherit {
 	outline-width: 1px;
 	outline-style: auto;
 }
+
+.highlight {
+    color: #FF7E00;
+    font-weight: bold;
+}

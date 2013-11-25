@@ -1,6 +1,6 @@
 $(function() {
-            
-            /********Init Connection with kinvey Back End********/
+
+		   /********Init Connection with kinvey Back End********/
            var promiseInit = Kinvey.init({
                 appKey    : 'kid_PVvB5PRZEi',
                 appSecret : '5ba92a5b5d7e40949f84a445b747eaf4'
@@ -147,6 +147,12 @@ $(function() {
 			
 			$(document).on("pageshow", "#requerimientosBusqueda", function () {
 					console.log("pageshow del requerimientosBusqueda");
+					$("#reqBusEstReq").prop('selectedIndex', 0);
+					$("#reqBusEstReq").selectmenu('refresh');              
+					$("#reqBusTipReq").prop('selectedIndex', 0);
+					$("#reqBusTipReq").selectmenu('refresh'); 
+					$("#reqBusCodSIc").val("");
+					$("#reqBusReqID").val("");
 			});
 			
 			            
@@ -178,6 +184,23 @@ $(function() {
 					   });
 					}
 				});
+			});
+			
+			$(document).on("pageshow", "#fronterasBusqueda", function () {
+				console.log("pageshow del fronterasBusqueda");
+				$("#fronBusFronTipo").prop('selectedIndex', 0);
+				$("#fronBusFronTipo").selectmenu('refresh');              
+				$("#fronBusNivTension").prop('selectedIndex', 0);
+				$("#fronBusNivTension").selectmenu('refresh'); 
+				$("#fronBusDepartamento").prop('selectedIndex', 0);  
+				$("#fronBusDepartamento").selectmenu('refresh'); 
+				$("#fronBusCiudad").prop('selectedIndex', 0); 
+				$("#fronBusCiudad").selectmenu('refresh');
+				$("#fronBusSic").val("");
+				$("#fronBusCodProCon").val("");
+				$("#fronBusNombre").val("");
+				$("#fronBusNiu").val("");
+				$("#fronBusAgente").val("");
 			});
             
             $('#fronBusDepartamento').change(function() {
@@ -234,11 +257,11 @@ $(function() {
     				success: function(items) {
 					   console.log("Consulta satisfactoria de requerimientos");
                        $('#desReqListaRequerimientos').empty();
-					   $('#desReqListaRequerimientos').append('<li data-role="list-divider" role="heading">Seleccione Para Desistir Requerimiento</li>');
+					   $('#desReqListaRequerimientos').append('<li data-role="list-divider" role="heading">Seleccione Para Desistir</li>');
 					   $.each(items, function(index, item) {
 						  console.log(item.CodigoSIC);
 						  $('#desReqListaRequerimientos').append('<li data-theme="c"><a href="" data-transition="slide" data-id="' +item._id
-						  + '">IDReq:  ' + item.IDRequerimiento + "<br/>Agente:  " + item.Agente+ "<br/>CodigoSIC:  "  + item.CodigoSIC
+						  + '"><b class="highlight">IDReq:</b>  ' + item.IDRequerimiento + '<br/><b class="highlight">Agente:</b>  ' + item.Agente+ '<br/><b class="highlight">CodigoSIC:</b>  '  + item.CodigoSIC
 						  +'</a></li>');
 					   });
 					   $('#desReqListaRequerimientos').listview('refresh');
@@ -283,7 +306,9 @@ $(function() {
 						   $.each(response, function(index, item) {
 							    console.log("Requerimiento found: "+item.IDRequerimiento);
 								$("#desReqRequerimiento").val(item.IDRequerimiento);
+								$('#desReqRequerimiento').textinput('disable');
 								document.getElementById("desReqFecSolicitud").valueAsDate = new Date();
+								$('#desReqFecSolicitud').textinput('disable');
 								$("#desReqNomFrontera").val(item.Agente);
 								$('#desReqNomFrontera').textinput('disable');
 								$("#desReqRepFrontera").val(item.Agente);
@@ -293,7 +318,7 @@ $(function() {
 								$("#desReqTipFrontera").val(item.TipoFrontera).selectmenu('refresh');
 								$('#desReqTipFrontera').selectmenu('disable');
 								$("#desReqReqAsociado").val(item.IDRequerimiento);
-								$('#falHurNomFrontera').textinput('disable');
+								$('#desReqReqAsociado').textinput('disable');
 								$("#desReqCodSic").val(item.CodigoSIC);
 								$('#desReqCodSic').textinput('disable');
 						   });
@@ -317,6 +342,7 @@ $(function() {
 				}
 				else {
 					alert("Se desistirá el requerimiento");
+					goHome();
 				}
 			};
             
@@ -330,6 +356,7 @@ $(function() {
 			}
 			
 			var goHome = function() {
+				console.log("Yendo a home...");
 				$.mobile.changePage('#menu');
 			}
 						
@@ -387,7 +414,7 @@ $(function() {
 					   $.each(items, function(index, item) {
 						  console.log(item.CodigoSIC);
 						  $('#desReqListaFronteras').append('<li data-theme="c"><a href=""  data-transition="slide" data-id="' +item._id
-						  + '">NIU:  ' + item.NIU + "<br/>Nombre:  " + item.Nombre+ "<br/>CodigoSIC:  "  + item.CodigoSIC
+						  + '"><b class="highlight" >NIU:</b>  ' + item.NIU + '<br/><b class="highlight">Nombre:</b> ' + item.Nombre+ '<br/><b class="highlight">CodigoSIC:</b>  '  + item.CodigoSIC
 						  +'</a></li>');
 					   });
 					   $('#desReqListaFronteras').listview('refresh');
@@ -428,7 +455,9 @@ $(function() {
 						   $.each(response, function(index, item) {
 							    console.log("Frontera found: "+item.CodigoSIC);
 								document.getElementById("falHurFechaInicio").valueAsDate = new Date();
+								$('#falHurFechaInicio').textinput('disable');
 								document.getElementById("falHurFecMax").valueAsDate = new Date();
+								$('#falHurFecMax').textinput('disable');
 								$("#falHurRequerimiento").val(item.CodigoPropioContador);
 								$('#falHurRequerimiento').textinput('disable');
 								$("#falHurContacto").val(item.Contacto);
@@ -465,7 +494,8 @@ $(function() {
 					);
 				}
 				else {
-					alert("Se registrará el requerimiento");
+					alert("Se registró el requerimiento");
+					goHome();
 				}
 			};
             
@@ -515,6 +545,5 @@ $(function() {
 			$("#tomarFotoBtn").click(function () {
 			  tomarFoto(); 
 			});
-			
 			
 });		
