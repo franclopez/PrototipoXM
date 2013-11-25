@@ -350,7 +350,7 @@ $(function() {
 				}
 			};
             
-			var doDesistir = function() {
+			var doDesistir = function(buttonIndex) {
 				if(buttonIndex == 2) {
 				  navigator.notification.alert('Se Desistíó el Requerimiento',     
 						goHome,      
@@ -500,7 +500,7 @@ $(function() {
 				}
 			};
             
-			var doRegistrar = function() {
+			var doRegistrar = function(buttonIndex) {
 			 if(buttonIndex == 2) {
 				navigator.notification.alert('Se registró el Requerimiento',     
 					goHome,      
