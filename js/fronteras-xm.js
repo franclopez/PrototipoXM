@@ -331,6 +331,10 @@ $(function() {
                 showConfirmDesistir();
             });
 			
+			var goHome = function() {
+				$.mobile.changePage('#menu');
+			}
+			
 			var showConfirmDesistir = function() {
 				if(navigator.notification){
 					navigator.notification.confirm(
@@ -348,17 +352,14 @@ $(function() {
             
 			var doDesistir = function() {
 				if(buttonIndex == 2) {
-				  navigator.notification.alert('Se Desistío el Requerimiento',     
+				  navigator.notification.alert('Se Desistíó el Requerimiento',     
 						goHome,      
 						'Desistir Requerimiento',
 						'OK');
 				}
 			}
 			
-			var goHome = function() {
-				console.log("Yendo a home...");
-				$.mobile.changePage('#menu');
-			}
+			
 						
             var fronteraInfo = {
 				id : null,
