@@ -235,6 +235,8 @@ $(function() {
 			
 		  //Realizar Busqueda de Requerimientos
             $("#reqBusSearch").click(function () {
+			  if( ($("#reqBusEstReq").val() !== "" )  || ($("#reqBusCodSIc").val() !== "" ) || ($("#reqBusReqID").val() !== "" ) || ($("#reqBusTipReq").val() !== "" ) ) {
+				 $.mobile.changePage('#detalleRequerimiento');
                  $.mobile.loading('show');
                  console.log("Buscando requerimientos....");
     			 var reqBusEstReq = $("#reqBusEstReq").val();
@@ -272,7 +274,10 @@ $(function() {
 						$.mobile.loading('hide');
 					}
 				 });
-                 $.mobile.changePage('#detalleRequerimiento');
+                }
+				else {
+				  showAlert("Debe ingresar al menos un criterio de búsqueda","Error");
+				}
             });
 			
 			$(document).on("pageshow", "#desistirRequerimiento", function () {
@@ -373,7 +378,10 @@ $(function() {
 						
             //Realizar Busqueda de Fronteras
             $("#fronBusSearch").click(function () {
-                 $.mobile.loading('show');
+			   if( ($("#fronBusSic").val() !== "" )  || ($("#reqBusEstReq").val() !== "" ) || ($("#fronBusFronTipo").val() !== "" ) || ($("#fronBusNombre").val() !== "" ) ||
+			    ($("#fronBusNivTension").val() !== "" )  || ($("#fronBusNiu").val() !== "" ) || ($("#fronBusCiudad").val() !== "" ) || ($("#fronBusAgente").val() !== "" ) ) {
+                 $.mobile.changePage('#detalleFronteras');
+				 $.mobile.loading('show');
                  console.log("Buscando fronteras....");
 				 var fronBusSic = $("#fronBusSic").val();
 				 var query = new Kinvey.Query();
@@ -422,10 +430,14 @@ $(function() {
 					   $.mobile.loading('hide');
 					},	
 					error: function(e) {
-						console.log("Problemas consultando fronteras");
+						showAlert("Problemas consultando fronteras","Error");
+						$.mobile.loading('hide');
 					}
 				 });
-				 $.mobile.changePage('#detalleFronteras');
+			  }
+			  else {
+				  showAlert("Debe ingresar al menos un criterio de búsqueda","Error");
+			  }
             });
 			
 			
@@ -530,7 +542,8 @@ $(function() {
 				var options =   {   quality: 50,
 									destinationType: Camera.DestinationType.DATA_URL,
 									sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
-									encodingType: 0     // 0=JPG 1=PNG
+									encodingType: 0,     // 0=JPG 1=PNG
+									saveToPhotoAlbum: true
 								};
 				navigator.camera.getPicture(
 					function(imageData) {
