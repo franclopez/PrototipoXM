@@ -398,6 +398,7 @@ $(function() {
 							document.getElementById("falHurFechaInicio").valueAsDate = new Date();
 							$('#falHurFechaInicio').textinput('disable');
 							document.getElementById("falHurFecMax").valueAsDate = new Date();
+							$("#image").removeAttr("src");
 							$('#image').attr('src', null);
 							$('#falHurFecMax').textinput('disable');
 							$("#falHurRequerimiento").val(item.CodigoPropioContador);
@@ -416,14 +417,13 @@ $(function() {
 							$('#falHurCodSIC').textinput('disable');
 							$("#falHurNomFrontera").val(item.Nombre);
 							$('#falHurNomFrontera').textinput('disable');
-							$("#falHureqMedida").val(item.CodigoSIC);
+							$("#falHureqMedida").val("");
 							$("#falHurTipReporte").prop('selectedIndex', 0);
 							$("#falHurTipReporte").selectmenu('refresh');
 							$.mobile.loading('hide');
 					   });
 					 }
 				});
-				
 			});
 						
             //Realizar Busqueda de Fronteras
