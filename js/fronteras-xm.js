@@ -352,7 +352,7 @@ $(function() {
             
 			var doDesistir = function(buttonIndex) {
 				if(buttonIndex == 2) {
-				  navigator.notification.alert('Se Desistíó el Requerimiento',     
+				  navigator.notification.alert('Se Desistió el Requerimiento',     
 						goHome,      
 						'Desistir Requerimiento',
 						'OK');
