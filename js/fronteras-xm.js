@@ -398,8 +398,7 @@ $(function() {
 							document.getElementById("falHurFechaInicio").valueAsDate = new Date();
 							$('#falHurFechaInicio').textinput('disable');
 							document.getElementById("falHurFecMax").valueAsDate = new Date();
-							$("#image").removeAttr("src");
-							$('#image').attr('src', null);
+							$('#image').attr('src', "img/spacer.png");
 							$('#falHurFecMax').textinput('disable');
 							$("#falHurRequerimiento").val(item.CodigoPropioContador);
 							$('#falHurRequerimiento').textinput('disable');
@@ -549,7 +548,7 @@ $(function() {
 									saveToPhotoAlbum: true
 								};
 				navigator.camera.getPicture(
-					function(imageData) {
+					function(imageData) { 
 						$('#image').attr('src', "data:image/jpeg;base64," + imageData);
 					},
 					function() {
