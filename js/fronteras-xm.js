@@ -81,7 +81,7 @@ $(function() {
 					var user = Kinvey.getActiveUser();
 					Kinvey.User.logout({
 						success: function() {
-							$.mobile.changePage('#logon'); 
+							$.mobile.changePage('#logon');
 						},
 						error: function(e) {
 							$.mobile.changePage('#logon'); 
@@ -100,6 +100,7 @@ $(function() {
 						success: function() {
 							$.mobile.changePage('#logon'); 
 							$.mobile.loading('hide');
+							navigator.app.exitApp();
 						},
 						error: function(e) {
 							$.mobile.changePage('#logon'); 
