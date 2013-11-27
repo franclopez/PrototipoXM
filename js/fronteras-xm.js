@@ -125,7 +125,12 @@ $(function() {
 			$(document).on("pageinit", "#requerimientosBusqueda", function () {
 				console.log("pageinit del requerimientosBusqueda");
                 $.mobile.loading('show');
-				var promise = Kinvey.DataStore.find('EstadosRequerimiento', null, {
+				var query = new Kinvey.Query();
+				query.equalTo('Nombre', 'Revisión');
+				var query2 = new Kinvey.Query();
+				query2.equalTo('Nombre', 'Evaluado');
+				query.or(query2);
+				var promise = Kinvey.DataStore.find('EstadosRequerimiento', query, {
 					success: function(items) {
 					   var list = $("#reqBusEstReq");
 					   $.each(items, function(index, item) {
@@ -327,10 +332,7 @@ $(function() {
 				}
             });
 			
-			$(document).on("pageshow", "#desistirRequerimiento", function () {
-					
-			});
-			
+						
 			$("#desReqBtnDesistir").click(function () {
                 showConfirmDesistir();
             });
@@ -340,6 +342,7 @@ $(function() {
 			}
 			
 			var showConfirmDesistir = function() {
+			  if( ($("#desReqContacto").val() !== "" )  && ($("#desReqMotDesistimiento").val() !== "" )) {
 				if(navigator.notification){
 					navigator.notification.confirm(
 					'Desea Desistir el Requerimiento?',     
@@ -352,6 +355,10 @@ $(function() {
 					alert("Se desistirá el requerimiento");
 					goHome();
 				}
+			  }
+			  else {
+				showAlert("Por Favor Ingrese Todos Los Campos","Error");
+			  }
 			};
             
 			var doDesistir = function(buttonIndex) {
@@ -368,10 +375,11 @@ $(function() {
 				result : null
 			}
 			
-			$(document).on('vclick', '#desReqListaFronteras li a', function(){  
+			$(document).on('vclick', '#desReqListaFronteras li a', function(){
 				fronteraInfo.id = $(this).attr('data-id');
 				$.mobile.changePage( "#reporteFallaHurto", { transition: "slide", changeHash: false });
 				$.mobile.loading('show');
+				$('#image').attr('src', "img/spacer.png");
 				console.log("Obteniendo frontera con id: " +fronteraInfo.id);
 				var promise = Kinvey.DataStore.find('TiposFrontera', null, {
 					success: function(items) {
@@ -398,7 +406,6 @@ $(function() {
 							document.getElementById("falHurFechaInicio").valueAsDate = new Date();
 							$('#falHurFechaInicio').textinput('disable');
 							document.getElementById("falHurFecMax").valueAsDate = new Date();
-							$('#image').attr('src', "img/spacer.png");
 							$('#falHurFecMax').textinput('disable');
 							$("#falHurRequerimiento").val(item.CodigoPropioContador);
 							$('#falHurRequerimiento').textinput('disable');
@@ -489,17 +496,12 @@ $(function() {
 			  }
             });
 			
-			
-			$(document).on("pageshow", "#reporteFallaHurto", function () {
-					console.log("pageshow del reporteFallaHurto");
-					
-			});
-			
 			$("#falHurBtnGuardar").click(function () {
                 showConfirmReporte();
             });
 			
 			var showConfirmReporte = function() {
+			   if( ($("#falHureqMedida").val() !== "" )  && ($("#falHurTipReporte").val() !== "" )) {
 				if(navigator.notification){
 					navigator.notification.confirm(
 					'Desea Registrar el Requerimiento?',     
@@ -512,6 +514,10 @@ $(function() {
 					alert("Se registró el requerimiento");
 					goHome();
 				}
+			  }
+			  else {
+				showAlert("Por Favor Ingrese Todos Los Campos","Error");
+			  }
 			};
             
 			var doRegistrar = function(buttonIndex) {
