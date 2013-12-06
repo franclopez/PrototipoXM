@@ -407,7 +407,7 @@ $(function() {
 							document.getElementById("falHurFechaInicio").valueAsDate = new Date();
 							$('#falHurFechaInicio').textinput('disable');
 							document.getElementById("falHurFecMax").valueAsDate = new Date();
-							$('#falHurFecMax').textinput('disable');
+							//$('#falHurFecMax').textinput('disable');
 							$("#falHurRequerimiento").val(item.CodigoPropioContador);
 							$('#falHurRequerimiento').textinput('disable');
 							$("#falHurContacto").val(item.Contacto);
@@ -476,7 +476,7 @@ $(function() {
 				 var promiseFronteras = Kinvey.DataStore.find('Fronteras', query, {
     				success: function(items) {
 					   console.log("Consulta satisfactoria de fronteras");
-					   $('#desReqListaFronteras').append('<li data-role="list-divider" role="heading">Seleccione Para Reporte de Falla/Hurto</li>');
+					   $('#desReqListaFronteras').append('<li data-role="list-divider" role="heading">Seleccione</li>');
 					   $.each(items, function(index, item) {
 						  console.log(item.CodigoSIC);
 						  $('#desReqListaFronteras').append('<li data-theme="c"><a href=""  data-transition="slide" data-id="' +item._id
@@ -485,7 +485,7 @@ $(function() {
 					   });
 					   $('#desReqListaFronteras').listview('refresh');
 					   $.mobile.loading('hide');
-					},	
+					},
 					error: function(e) {
 						showAlert("Problemas consultando fronteras","Error");
 						$.mobile.loading('hide');
