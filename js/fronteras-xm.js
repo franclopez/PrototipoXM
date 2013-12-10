@@ -568,5 +568,4 @@ $(function() {
 			$("#tomarFotoBtn").click(function () {
 			  tomarFoto(); 
 			});
-			
 });		
